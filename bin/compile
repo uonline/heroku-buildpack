@@ -184,6 +184,10 @@ echo "-----> Building runtime environment"
 mkdir -p $BUILD_DIR/.profile.d
 echo "export PATH=\"\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\"" > $BUILD_DIR/.profile.d/nodejs.sh
 
+echo "-----> Installing Bower packages"
+cd $BUILD_DIR
+./node_modules/bower/bin/bower install | indent
+
 echo "-----> Running project-specific tasks"
 cd $BUILD_DIR
 ./node_modules/grunt-cli/bin/grunt build | indent
