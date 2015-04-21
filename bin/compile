@@ -135,6 +135,11 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
 
 # Run project-specific stuff
 
+status 'uonline: Checking out submodules'
+cd $build_dir
+git submodule init
+git submodule update
+
 status 'uonline: Installing Bower packages'
 cd $build_dir
 ./node_modules/bower/bin/bower install | indent
