@@ -135,16 +135,6 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
 
 # Run project-specific stuff
 
-status 'uonline: Checking out submodules'
-cd $build_dir
-git init
-curl -s 'https://raw.githubusercontent.com/uonline/uonline/master/.gitmodules' > .gitmodules
-git add .gitmodules
-git commit -m 'Add .gitmodules'
-git submodule init
-git submodule update
-rm -rf .git
-
 status 'uonline: Installing Bower packages'
 cd $build_dir
 ./node_modules/bower/bin/bower install | indent
