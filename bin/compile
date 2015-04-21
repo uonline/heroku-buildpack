@@ -132,6 +132,7 @@ status "Building runtime environment"
 mkdir -p $build_dir/.profile.d
 echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\";" > $build_dir/.profile.d/nodejs.sh
 
+
 # Run project-specific stuff
 
 status 'uonline: Installing Bower packages'
@@ -142,10 +143,6 @@ status 'uonline: Building assets'
 cd $build_dir
 ./node_modules/gulp/bin/gulp.js build | indent
 
-status 'uonline: Initializing database'
-cd $build_dir
-./node_modules/coffee-script/bin/coffee init.coffee -i
-./node_modules/coffee-script/bin/coffee init.coffee -m -o
 
 # Post package.json to nomnom service
 # Use a subshell so failures won't break the build.
