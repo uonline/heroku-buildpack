@@ -138,6 +138,7 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
 status 'uonline: Checking out submodules'
 cd $build_dir
 git init
+curl 'https://raw.githubusercontent.com/uonline/uonline/master/.gitmodules' > .gitmodules
 git submodule init
 git submodule update
 rm -rf .git
